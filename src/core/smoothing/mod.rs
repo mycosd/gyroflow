@@ -8,6 +8,7 @@ pub mod fixed;
 pub mod default_algo;
 pub mod default_algo_2;
 pub mod velocity_dampened_advanced;
+pub mod tracing;
 
 pub use nalgebra::*;
 use super::gyro_source::TimeQuat;
@@ -49,6 +50,7 @@ impl Default for Smoothing {
                 Box::new(self::default_algo_2::DefaultAlgo2::default()),
                 Box::new(self::plain::Plain::default()),
                 Box::new(self::velocity_dampened_advanced::VelocityDampenedAdvanced::default()),
+                Box::new(self::tracing::Tracing::default()),
                 Box::new(self::fixed::Fixed::default())
             ],
             quats_checksum: 0,
